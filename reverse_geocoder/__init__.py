@@ -300,7 +300,12 @@ if __name__ == '__main__':
     print(result)
 
     print('Testing coordinates...')
-    cities = [(51.5214588, -0.1729636), (9.936033, 76.259952), (37.38605, -122.08385)]
+    cities = [(53.555046, 7.947790)]
     print('Reverse geocoding %d cities...' % len(cities))
     results = search(cities)
+
+    for idx, val in enumerate(results):
+      if val['admin1'] == "Lower Saxony":
+        results[idx]['here_map_package'] = "Lower Saxony/Bremen"
+
     print(results)
